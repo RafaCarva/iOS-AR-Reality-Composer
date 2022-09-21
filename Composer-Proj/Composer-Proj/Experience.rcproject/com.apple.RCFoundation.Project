@@ -224,6 +224,26 @@
                                     }
                                   ],
                                   "__version" : 1
+                                },
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
+                                          "target" : [
+                                            "CA3FF48E-D7C9-44AA-85A1-9C150D35DC85"
+                                          ],
+                                          "userIdentifier" : "DisplayRobotDetais"
+                                        },
+                                        "name" : {
+                                          "type" : "custom"
+                                        }
+                                      },
+                                      "identifier" : "FC8A3E34-6EFD-4204-9BC4-5E02BE802AEB",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
                                 }
                               ],
                               "identifier" : "E880A8FB-C442-4A5B-9748-37C8031BB402",
@@ -257,6 +277,84 @@
                                 "name" : "tapTarget"
                               },
                               "identifier" : "3AF00626-3B8E-4517-B395-BD4193DE3871",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        }
+                      ]
+                    }
+                  ],
+                  "__version" : 3
+                },
+                {
+                  "__content" : [
+                    {
+                      "accessibility" : {
+                        "__content" : [
+                          {
+                            "isEnabled" : false
+                          }
+                        ],
+                        "__version" : 1
+                      },
+                      "actionGroups" : [
+                        {
+                          "__content" : [
+                            {
+                              "configurations" : [
+                                {
+                                  "__content" : [
+                                    {
+                                      "configurationBox" : {
+                                        "configuration" : {
+                                          "target" : [
+                                            "B2880D9D-1293-40E5-80E5-4B2171F357F7"
+                                          ],
+                                          "userIdentifier" : "DisplayEarthDetails"
+                                        },
+                                        "name" : {
+                                          "type" : "custom"
+                                        }
+                                      },
+                                      "identifier" : "4904EEC8-70D3-4C71-9EB2-48B64105435A",
+                                      "isEnabled" : true
+                                    }
+                                  ],
+                                  "__version" : 1
+                                }
+                              ],
+                              "identifier" : "86300641-32AF-495D-AC3B-2F5C552E8CD1",
+                              "isEnabled" : true
+                            }
+                          ],
+                          "__version" : 1
+                        }
+                      ],
+                      "color" : [
+                        0.49019607901573181,
+                        0.7450980544090271,
+                        0.94901961088180542,
+                        1
+                      ],
+                      "identifier" : "C81871D8-CE64-4302-B7A6-3AEEB3AC3C82",
+                      "isEnabled" : true,
+                      "isLooping" : false,
+                      "isModal" : false,
+                      "name" : "Earth Tap",
+                      "triggers" : [
+                        {
+                          "__content" : [
+                            {
+                              "configurationBox" : {
+                                "configuration" : {
+                                  "target" : [
+                                    "B2880D9D-1293-40E5-80E5-4B2171F357F7"
+                                  ]
+                                },
+                                "name" : "tapTarget"
+                              },
+                              "identifier" : "28A01602-3FD1-416B-94A1-017E4A6C2A63",
                               "isEnabled" : true
                             }
                           ],
@@ -323,6 +421,13 @@
                           {
                             "typeName" : "UUID",
                             "value" : "B2880D9D-1293-40E5-80E5-4B2171F357F7"
+                          }
+                        ],
+                        [
+                          "entityName",
+                          {
+                            "typeName" : "String",
+                            "value" : "Earth"
                           }
                         ]
                       ]
@@ -582,6 +687,13 @@
                             "typeName" : "UUID",
                             "value" : "CA3FF48E-D7C9-44AA-85A1-9C150D35DC85"
                           }
+                        ],
+                        [
+                          "entityName",
+                          {
+                            "typeName" : "String",
+                            "value" : "Robot"
+                          }
                         ]
                       ]
                     },
@@ -693,21 +805,21 @@
               "title" : "MainScene",
               "viewTransform" : {
                 "cameraTransform" : [
-                  0.99196761846542358,
-                  7.4505814851022478e-09,
-                  0.126491978764534,
+                  0.9968300461769104,
+                  7.916240107874728e-09,
+                  0.079558566212654114,
                   0,
-                  0.027139019221067429,
-                  0.97671228647232056,
-                  -0.21282939612865448,
+                  0.02202247641980648,
+                  0.96092444658279419,
+                  -0.27593317627906799,
                   0,
-                  -0.123546302318573,
-                  0.21455302834510803,
-                  0.96886694431304932,
+                  -0.076449811458587646,
+                  0.27681085467338562,
+                  0.95787841081619263,
                   0,
-                  0.20767994225025177,
-                  0.70267868041992188,
-                  2.8404967784881592,
+                  0.34093195199966431,
+                  0.87606906890869141,
+                  2.7897548675537109,
                   1
                 ],
                 "sceneTransform" : [

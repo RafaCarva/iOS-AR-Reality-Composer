@@ -8,13 +8,33 @@
 import SwiftUI
 import RealityKit
 
+class ViewModel: ObservableObject {
+    @Published var objectName: String = ""
+}
+
 struct ContentView : View {
+    
+    @StateObject var vm = ViewModel()
+    
     var body: some View {
-        ARViewContainer().edgesIgnoringSafeArea(.all)
+        VStack {
+            ARViewContainer(vm: vm).edgesIgnoringSafeArea(.all)
+            VStack {
+                Text(vm.objectName)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding()
+            }.frame(maxWidth: .infinity, maxHeight: 100)
+                .background(.brown)
+                .foregroundColor(.white)
+            
+        }
+        
     }
 }
 
 struct ARViewContainer: UIViewRepresentable {
+    
+    let vm: ViewModel
     
     func makeUIView(context: Context) -> ARView {
         
@@ -22,6 +42,26 @@ struct ARViewContainer: UIViewRepresentable {
         
         // Load the "Box" scene from the "Experience" Reality File
         let mainSceneAnchor = try! Experience.loadMainScene()
+        
+        // Captura todos os actions que contenham "display" no nome.
+        // O robô possúi um Action chanado "DisplayRobotDetails"
+        // e o planeta possúi um action chamado "DisplayEarthDetais"
+        let allDisplayActions = mainSceneAnchor.actions.allActions.filter {
+            $0.identifier.hasPrefix("Display")
+        }
+        
+        // Itera sobre esse compilado de actions
+        for displayAction in allDisplayActions {
+            displayAction.onAction = { entity in
+                
+                // Popula
+                if let entity = entity {
+                    vm.objectName = entity.name
+                }
+            }
+        }
+        
+        
         
         // Add the box anchor to the scene
         arView.scene.anchors.append(mainSceneAnchor)
