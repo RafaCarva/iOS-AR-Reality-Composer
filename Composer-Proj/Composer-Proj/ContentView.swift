@@ -10,6 +10,8 @@ import RealityKit
 
 class ViewModel: ObservableObject {
     @Published var objectName: String = ""
+    
+    var onStartBoxSpinNotification: () -> Void = { }
 }
 
 struct ContentView : View {
@@ -23,6 +25,14 @@ struct ContentView : View {
                 Text(vm.objectName)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .padding()
+                
+                // Botão para dar um POST em uma action lá no [Box Behavior] Reality Composer
+                Button("Spin Box") {
+                    vm.onStartBoxSpinNotification()
+                }.padding()
+                    .background(.blue)
+                    .clipShape(Capsule())
+                
             }.frame(maxWidth: .infinity, maxHeight: 100)
                 .background(.brown)
                 .foregroundColor(.white)
@@ -43,6 +53,12 @@ struct ARViewContainer: UIViewRepresentable {
         // Load the "Box" scene from the "Experience" Reality File
         let mainSceneAnchor = try! Experience.loadMainScene()
         
+        // Aqui eu dou um "override" na função do meu ViewModel
+        vm.onStartBoxSpinNotification = {
+            mainSceneAnchor.notifications.boxSpinNotification.post()
+        }
+        
+        
         // Captura todos os actions que contenham "display" no nome.
         // O robô possúi um Action chanado "DisplayRobotDetails"
         // e o planeta possúi um action chamado "DisplayEarthDetais"
@@ -60,9 +76,7 @@ struct ARViewContainer: UIViewRepresentable {
                 }
             }
         }
-        
-        
-        
+
         // Add the box anchor to the scene
         arView.scene.anchors.append(mainSceneAnchor)
         
